@@ -4,7 +4,7 @@ from datetime import date
 # roadmap for this project!
 
 # create a main class to act as menu / body, showing all the tasks
-# create methods to add, delete, and update(done/changed) tasks (read about CRUD)
+# create methods to add, delete, and update(task done/changed) tasks (read about CRUD)
 
 # implement some sort of db system to save the tasks list when finished
     # experiment with JSON?
@@ -18,15 +18,20 @@ def main():
         if keypress == "q":
             sys.exit()
 
-def show_menu():
+def show_menu(): # this shows the "main menu" of our program, with the options for each function
     today = date.today()
     print("Hans's tasks :)")
     print(f"Current date is {today}")
-    print("Task 1...")
-    print("Task 2...")
-    print("Task 3...")
-    print("Task 4...")
-    print("Task 5...")
+    print("Current tasks open are: ")
+
+def list_tasks(): # shows a list of all the tasks, incluiding the ones marked as complete
+    pass
+
+def add_task(): # adds a new task to the start of the list
+    pass
+
+def remove_task(): # remove a task
+    pass
 
 if __name__ == "__main__":
     main()
