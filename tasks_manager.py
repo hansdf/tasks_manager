@@ -12,10 +12,9 @@ from datetime import date
 # additional functionality with more advanced methods, such as search or filter specific tasks
 
 def main():
-    
     while True:
         show_menu()
-        keypress = input("press q to exit ")
+        keypress = input("enter q to quit ")
         if keypress == "q":
             sys.exit()
 
