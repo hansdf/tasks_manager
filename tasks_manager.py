@@ -11,39 +11,45 @@ from datetime import date
 
 # additional functionality with more advanced methods, such as search or filter specific tasks
 
+dict_of_tasks = { # global dictionary to hold tasks, for ease access from the different functions such as add, remove, etc
+        "Task 01": "...",
+        "Task 02": "...",
+        "Task 03": "...",
+        "Task 04": "...",
+        "Task 05": "..."
+    }
+
 def main():
+
     while True:
         show_menu()
-        keypress = input("enter q to quit ")
+        keypress = input("enter your action:\nq(QUIT)\na(ADD NEW ITEM)\nls(LIST ITEMS)\n... ")
         if keypress == "q":
             sys.exit()
+        elif keypress == "a":
+            add_task()
+        elif keypress == "ls":
+            list_tasks()
+        
 
 def show_menu(): # this shows the "main menu" of our program, with the options for each function
     today = date.today()
-    print("Hans's tasks :)")
+    print("\nHans's tasks :)")
     print(f"Current date is {today}")
     print("Current tasks open are: ")
     list_tasks()
 
 def list_tasks(): # shows a list of all the tasks, incluiding the ones marked as complete, should be a dictionary?
-    dict_of_tasks = {
-        "Task 01": "...",
-        "Task 02": "...",
-        "Task 03": "...",
-        "Task 04": "...",
-        "Task 05": "...",
-        "Task 06": "...",
-        "Task 07": "...",
-        "Task 08": "...",
-        "Task 09": "...",
-        "Task 10": "..."
-    }
-    
-    for key, value in dict_of_tasks.items():
+    for key, value in dict_of_tasks.items(): # loop to print the dict line by line
         print(key, value)
 
+    print(f"Task list has currently {len(dict_of_tasks)} items open.")
+
 def add_task(): # adds a new task to the start of the list
-    pass
+    task_description = input("Enter the task description: ")
+    task_id = f"Task {len(dict_of_tasks) + 1:02d}"  # task ID with leading zeroes
+    dict_of_tasks[task_id] = task_description
+    print(f"Task '{task_id}' added.")
 
 def remove_task(): # remove a task
     pass
