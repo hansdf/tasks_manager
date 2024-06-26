@@ -23,9 +23,24 @@ def show_menu(): # this shows the "main menu" of our program, with the options f
     print("Hans's tasks :)")
     print(f"Current date is {today}")
     print("Current tasks open are: ")
+    list_tasks()
 
-def list_tasks(): # shows a list of all the tasks, incluiding the ones marked as complete
-    pass
+def list_tasks(): # shows a list of all the tasks, incluiding the ones marked as complete, should be a dictionary?
+    dict_of_tasks = {
+        "Task 01": "...",
+        "Task 02": "...",
+        "Task 03": "...",
+        "Task 04": "...",
+        "Task 05": "...",
+        "Task 06": "...",
+        "Task 07": "...",
+        "Task 08": "...",
+        "Task 09": "...",
+        "Task 10": "..."
+    }
+    
+    for key, value in dict_of_tasks.items():
+        print(key, value)
 
 def add_task(): # adds a new task to the start of the list
     pass
