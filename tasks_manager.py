@@ -9,34 +9,33 @@ from datetime import date
 # implement some sort of db system to save the tasks list when finished
     # experiment with JSON?
 
+# add error handling
+
 # additional functionality with more advanced methods, such as search or filter specific tasks
 
-dict_of_tasks = { # global dictionary to hold tasks, for ease access from the different functions such as add, remove, etc
-        "Task 01": "...",
-        "Task 02": "...",
-        "Task 03": "...",
-        "Task 04": "...",
-        "Task 05": "..."
-    }
+
+dict_of_tasks = {} # global dictionary to hold tasks, for ease access from the different functions such as add, remove, etc
 
 def main():
 
-    while True:
+    while True: # could maybe use a switch here instead of a bunch of ifs? 
         show_menu()
-        keypress = input("enter your action:\nq(QUIT)\na(ADD NEW ITEM)\nls(LIST ITEMS)\n... ")
+        keypress = input("enter your action:\nq(QUIT)\na(ADD NEW ITEM)\nls(LIST ITEMS)\nr(REMOVE ITEM)\n... ")
         if keypress == "q":
             sys.exit()
         elif keypress == "a":
             add_task()
         elif keypress == "ls":
             list_tasks()
+        elif keypress == "r":
+            remove_task()
         
 
 def show_menu(): # this shows the "main menu" of our program, with the options for each function
     today = date.today()
     print("\nHans's tasks :)")
     print(f"Current date is {today}")
-    print("Current tasks open are: ")
+    print("Current tasks open are:\n")
     list_tasks()
 
 def list_tasks(): # shows a list of all the tasks, incluiding the ones marked as complete, should be a dictionary?
@@ -52,6 +51,7 @@ def add_task(): # adds a new task to the start of the list
     print(f"Task '{task_id}' added.")
 
 def remove_task(): # remove a task
+    # will use .pop()?
     pass
 
 if __name__ == "__main__":
