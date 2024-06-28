@@ -1,19 +1,6 @@
 import os, sys
 from datetime import date
 
-# roadmap for this project!
-
-# create a main class to act as menu / body, showing all the tasks
-# create methods to add, delete, and update(task done/changed) tasks (read about CRUD)
-
-# implement some sort of db system to save the tasks list when finished
-    # experiment with JSON?
-
-# add error handling
-
-# additional functionality with more advanced methods, such as search or filter specific tasks
-
-
 dict_of_tasks = {} # global dictionary to hold tasks, for ease access from the different functions such as add, remove, etc
 
 def main():
@@ -34,6 +21,7 @@ def main():
 def show_menu(): # this shows the "main menu" of our program, with the options for each function
     today = date.today()
     print("\nHans's tasks :)")
+    print("-------------------------")
     print(f"Current date is {today}")
     print("Current tasks open are:\n")
     list_tasks()
