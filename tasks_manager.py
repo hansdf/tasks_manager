@@ -1,10 +1,12 @@
-import os, sys
+import os, sys, json
 from datetime import date
+
+f = open('data.json') # Opening JSON file
+data = json.load(f) # returns JSON object as a dictionary
 
 dict_of_tasks = {} # global dictionary to hold tasks, for ease access from the different functions such as add, remove, etc
 
 def main():
-
     while True: # could maybe use a switch here instead of a bunch of ifs? 
         show_menu()
         keypress = input("enter your action:\nq(QUIT)\na(ADD NEW ITEM)\nls(LIST ITEMS)\nr(REMOVE ITEM)\n... ")
@@ -29,7 +31,6 @@ def show_menu(): # this shows the "main menu" of our program, with the options f
 def list_tasks(): # shows a list of all the tasks, incluiding the ones marked as complete, should be a dictionary?
     for key, value in dict_of_tasks.items(): # loop to print the dict line by line
         print(key, value)
-
     print(f"Task list has currently {len(dict_of_tasks)} items open.")
 
 def add_task(): # adds a new task to the start of the list
