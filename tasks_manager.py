@@ -2,15 +2,17 @@ import os, sys, json
 from datetime import date
 
 f = open('data.json') # Opening JSON file
-data = json.load(f) # returns JSON object as a dictionary
+json_data = json.loads(f.read()) # returns JSON object as a dictionary
+# print(f"this is the json data: {json_data}")
 
-dict_of_tasks = {} # global dictionary to hold tasks, for ease access from the different functions such as add, remove, etc
+dict_of_tasks = json_data # global dictionary to hold tasks, for ease access from the different functions such as add, remove, etc
 
 def main():
     while True: # could maybe use a switch here instead of a bunch of ifs? 
         show_menu()
         keypress = input("enter your action:\nq(QUIT)\na(ADD NEW ITEM)\nls(LIST ITEMS)\nr(REMOVE ITEM)\n... ")
         if keypress == "q":
+            f.close()
             sys.exit()
         elif keypress == "a":
             add_task()
@@ -19,7 +21,6 @@ def main():
         elif keypress == "r":
             remove_task()
         
-
 def show_menu(): # this shows the "main menu" of our program, with the options for each function
     today = date.today()
     print("\nHans's tasks :)")
